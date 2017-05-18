@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdn.rawgit.com/yegor256/tacit/gh-pages/tacit-0.8.1.min.css"/>
+    <script
+            src="https://code.jquery.com/jquery-3.2.1.min.js"
+            integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+            crossorigin="anonymous">
+    </script>
+    <title>laba 8</title>
+</head>
+<body bgcolor="#000000" text="gold">
+<form name="calculator">
+    <input type="button" value="1" onClick="document.calculator.ans.value+='1'">
+    <input type="button" value="2" onClick="document.calculator.ans.value+='2'">
+    <input type="button" value="3" onClick="document.calculator.ans.value+='3'">
+    <input type="button" value="+" onClick="document.calculator.ans.value+='+'">
+
+    <input type="button" value="4" onClick="document.calculator.ans.value+='4'">
+    <input type="button" value="5" onClick="document.calculator.ans.value+='5'">
+    <input type="button" value="6" onClick="document.calculator.ans.value+='6'">
+    <input type="button" value="-" onClick="document.calculator.ans.value+='-'">
+
+    <input type="button" value="7" onClick="document.calculator.ans.value+='7'">
+    <input type="button" value="8" onClick="document.calculator.ans.value+='8'">
+    <input type="button" value="9" onClick="document.calculator.ans.value+='9'">
+    <input type="button" value="*" onClick="document.calculator.ans.value+='*'">
+    <input type="button" value="/" onClick="document.calculator.ans.value+='/'">
+
+    <input type="button" value="0" onClick="document.calculator.ans.value+='0'">
+    <input type="reset" value="Reset">
+    <br>Solution is <input type="textfield" class="result" name="ans" value="">
+</form>
+<button class="getRes">=</button>
+
+
+<script>
+
+    $('.getRes').on('click', () => {
+        $.ajax(
+            {
+                url: 'http://127.0.0.1:3001/calc',
+                type: 'POST',
+                data: {data: $('.result').val()}
+            })
+            .done(function (res) {
+                $('.result').val(res);
+            });
+    })
+</script>
+
+</body>
+</html>

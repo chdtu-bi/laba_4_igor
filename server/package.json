@@ -1,0 +1,10 @@
+{
+  "name": "laba8",
+  "description": "laba 8",
+  "version": "0.0.1",
+  "private": true,
+  "dependencies": {
+    "body-parser": "^1.17.1",
+    "express": "^4.15.3"
+  }
+}
